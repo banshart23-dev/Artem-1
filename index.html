@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сапёр</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="title">Сапёр</div>
+          <div class="subtitle">Базовая версия в браузере</div>
+        </div>
+
+        <div class="controls">
+          <label class="control">
+            <span>Сложность</span>
+            <select id="preset">
+              <option value="beginner">Новичок (9×9, 10)</option>
+              <option value="intermediate">Средний (16×16, 40)</option>
+              <option value="expert">Эксперт (16×30, 99)</option>
+              <option value="custom">Своя…</option>
+            </select>
+          </label>
+
+          <div class="control custom" id="customControls" hidden>
+            <label>
+              <span>Ш</span>
+              <input id="customW" type="number" min="5" max="40" step="1" value="12" />
+            </label>
+            <label>
+              <span>В</span>
+              <input id="customH" type="number" min="5" max="30" step="1" value="12" />
+            </label>
+            <label>
+              <span>Мины</span>
+              <input id="customM" type="number" min="1" max="999" step="1" value="20" />
+            </label>
+          </div>
+
+          <button id="newGame" class="btn">Новая игра</button>
+        </div>
+      </header>
+
+      <section class="shell">
+        <section class="hud">
+          <div class="pill">
+            <span class="pillLabel">Мины</span>
+            <span id="minesLeft" class="pillValue">0</span>
+          </div>
+          <div class="pill">
+            <span class="pillLabel">Время</span>
+            <span id="time" class="pillValue">0</span>
+          </div>
+          <div id="status" class="status" aria-live="polite"></div>
+        </section>
+
+        <section class="boardWrap">
+          <div id="board" class="board" role="grid" aria-label="Игровое поле"></div>
+        </section>
+
+        <footer class="footer">
+          <div class="hint">
+            <span class="kbd">ЛКМ</span> открыть,
+            <span class="kbd">ПКМ</span> флаг,
+            <span class="kbd">ЛКМ по числу</span> (если флагов вокруг = числу) — открыть соседей
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
